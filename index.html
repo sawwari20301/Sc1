@@ -1,1200 +1,621 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المراقبة والتحكم الأمني الموحد | وزارة الداخلية</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Arabic (Cairo & Tajawal) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        moi: {
-                            dark: '#03261a',
-                            deep: '#06442e',
-                            green: '#0b6644',
-                            light: '#13875a',
-                            gold: '#cba135',
-                            goldLight: '#e4c46c',
-                            goldDark: '#99741e',
-                            accent: '#0d7a52',
-                            slate: '#0f172a'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        tajawal: ['Tajawal', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: radial-gradient(circle at top right, #083c29, #041f15 55%, #02110c 100%);
-            color: #f1f5f9;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Gold Foil & Luxury Effects */
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fce09b 0%, #cba135 50%, #99741e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-border {
-            border: 1px solid rgba(203, 161, 53, 0.4);
-        }
-
-        .gold-glow {
-            box-shadow: 0 0 25px rgba(203, 161, 53, 0.2);
-        }
-
-        .glass-panel {
-            background: rgba(6, 68, 46, 0.4);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(203, 161, 53, 0.25);
-        }
-
-        .glass-panel-dark {
-            background: rgba(3, 38, 26, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(203, 161, 53, 0.2);
-        }
-
-        /* Pattern overlay */
-        .saudi-pattern {
-            background-image: radial-gradient(rgba(203, 161, 53, 0.08) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-
-        /* Marquee / Awareness animations */
-        @keyframes scrollAwareness {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(50%); }
-        }
-
-        .animate-awareness {
-            display: inline-flex;
-            animation: scrollAwareness 35s linear infinite;
-        }
-
-        .animate-awareness:hover {
-            animation-play-state: paused;
-        }
-
-        /* Shift Pulse Badge */
-        @keyframes pulseActive {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.15); }
-        }
-        .pulse-dot {
-            animation: pulseActive 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #02110c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cba135;
-            border-radius: 4px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الإتصال الآمن | منظومة الأجهزة الذكية</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        moi: { dark: '#03261a', deep: '#06442e', green: '#0b6644', light: '#13875a', gold: '#cba135', goldLight: '#e4c46c', goldDark: '#99741e', accent: '#0d7a52', slate: '#0f172a' }
+      },
+      fontFamily: { cairo: ['Cairo','sans-serif'], tajawal: ['Tajawal','sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+body{font-family:'Tajawal',sans-serif;background:radial-gradient(circle at top right,#083c29,#041f15 55%,#02110c 100%);color:#f1f5f9;min-height:100vh;overflow-x:hidden}
+.gold-gradient-text{background:linear-gradient(135deg,#fce09b 0%,#cba135 50%,#99741e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gold-border{border:1px solid rgba(203,161,53,.4)}
+.glass-panel{background:rgba(6,68,46,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(203,161,53,.25)}
+.glass-panel-dark{background:rgba(3,38,26,.86);backdrop-filter:blur(16px);border:1px solid rgba(203,161,53,.2)}
+.saudi-pattern{background-image:radial-gradient(rgba(203,161,53,.08) 1px,transparent 1px);background-size:24px 24px}
+@keyframes scrollAwareness{0%{transform:translateX(0%)}100%{transform:translateX(50%)}}
+.animate-awareness{display:inline-flex;animation:scrollAwareness 35s linear infinite}
+.animate-awareness:hover{animation-play-state:paused}
+@keyframes pulseActive{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.15)}}
+.pulse-dot{animation:pulseActive 2s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.floaty{animation:floaty 5s ease-in-out infinite}
+@keyframes shine{0%{background-position:-200%}100%{background-position:200%}}
+.shine-line{background:linear-gradient(90deg,transparent,rgba(203,161,53,.7),transparent);background-size:200% 100%;animation:shine 3s linear infinite;height:2px}
+@keyframes verifiedPop{0%{transform:scale(0) rotate(-30deg)}70%{transform:scale(1.2) rotate(10deg)}100%{transform:scale(1) rotate(0)}}
+.verified-pop{animation:verifiedPop .8s ease forwards}
+::-webkit-scrollbar{width:7px;height:7px}
+::-webkit-scrollbar-track{background:#02110c}
+::-webkit-scrollbar-thumb{background:#cba135;border-radius:4px}
+.device-item{transition:all .35s ease}
+.auth-tab-active{background:linear-gradient(to left,#cba135,#99741e)!important;color:#03261a!important;font-weight:800!important}
+input,select{outline:none}
+input:focus,select:focus{border-color:#cba135!important;box-shadow:0 0 0 3px rgba(203,161,53,.15)}
+.modal-open{opacity:1!important;pointer-events:auto!important}
+</style>
 </head>
 <body class="saudi-pattern relative">
 
-    <!-- TOP EMBLEM & ROYAL HEADER -->
-    <header class="border-b border-moi-gold/30 bg-moi-dark/95 sticky top-0 z-40 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- Left/Brand: Saudi Emblem + Title -->
-                <div class="flex items-center space-x-4 space-x-reverse">
-                    <div class="w-14 h-14 rounded-full border-2 border-moi-gold p-1 flex items-center justify-center bg-moi-deep shadow-lg shadow-black/40">
-                        <!-- Saudi Palm and Crossed Swords SVG -->
-                        <svg class="w-10 h-10 text-moi-goldLight" viewBox="0 0 100 100" fill="currentColor">
-                            <path d="M50,15 C52,25 56,35 62,42 C54,40 46,40 38,42 C44,35 48,25 50,15 Z" fill="#cba135"/>
-                            <path d="M50,10 C50,22 43,30 33,35 C40,32 46,30 50,22 C54,30 60,32 67,35 C57,30 50,22 50,10 Z" fill="#e4c46c"/>
-                            <rect x="48" y="38" width="4" height="22" fill="#cba135" rx="2"/>
-                            <!-- Crossed Swords -->
-                            <path d="M25,75 L75,45 L73,43 L23,73 Z" fill="#e4c46c"/>
-                            <path d="M75,75 L25,45 L27,43 L77,73 Z" fill="#e4c46c"/>
-                            <circle cx="24" cy="74" r="3" fill="#cba135"/>
-                            <circle cx="76" cy="74" r="3" fill="#cba135"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs uppercase tracking-widest text-moi-gold font-bold">المملكة العربية السعودية</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-moi-gold/20 text-moi-goldLight border border-moi-gold/30">نظام آمن ومحمي 256-bit</span>
-                        </div>
-                        <h1 class="text-lg md:text-xl font-extrabold gold-gradient-text font-cairo leading-tight">
-                            وزارة الداخلية • البوابة الأمنية السيبرانية الموحدة
-                        </h1>
-                    </div>
-                </div>
-
-                <!-- Right Action Buttons -->
-                <div class="flex items-center space-x-3 space-x-reverse">
-                    <!-- Current Operator Indicator -->
-                    <div class="hidden lg:flex flex-col text-left text-xs bg-moi-deep/60 px-3 py-1.5 rounded-lg border border-moi-gold/30">
-                        <span class="text-gray-300">المستخدم الحالي: <strong class="text-moi-gold" id="currentLoggedUser">اللواء د. خالد السديري</strong></span>
-                        <span class="text-emerald-400 font-mono text-[11px]"><i class="fa-solid fa-shield-halved ml-1"></i> المشرف العام على المنظومة</span>
-                    </div>
-
-                    <!-- Slide Menu Button (User Switching & Roles) -->
-                    <button onclick="toggleUserDrawer()" class="flex items-center gap-2 bg-gradient-to-l from-moi-gold to-moi-goldDark hover:from-moi-goldLight hover:to-moi-gold text-moi-dark font-bold px-4 py-2.5 rounded-lg shadow-md hover:shadow-moi-gold/20 transition-all text-sm font-cairo">
-                        <i class="fa-solid fa-users-gear text-base"></i>
-                        <span>قائمة المستخدمين والدور البديل</span>
-                    </button>
-
-                    <!-- Fast Password Change Quick Button -->
-                    <button onclick="openPasswordModal()" title="تعديل الرقم السري" class="p-2.5 rounded-lg border border-moi-gold/40 bg-moi-deep/70 hover:bg-moi-gold/20 text-moi-gold transition-colors">
-                        <i class="fa-solid fa-key"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- CYBERSECURITY TICKER & ANIMATED BILLBOARD (إعلانات التوعية بالأمن السيبراني) -->
-    <section class="bg-gradient-to-r from-[#031c13] via-moi-deep to-[#031c13] border-b border-moi-gold/30 py-2.5 overflow-hidden shadow-inner">
-        <div class="max-w-7xl mx-auto px-4 flex items-center">
-            <div class="flex items-center gap-2 bg-moi-dark/90 px-3 py-1 rounded-md border border-moi-gold/40 text-moi-gold font-bold text-xs whitespace-nowrap z-10 shadow">
-                <i class="fa-solid fa-shield-cat text-moi-goldLight text-sm animate-bounce"></i>
-                <span>نشرة التوعية السيبرانية:</span>
-            </div>
-            
-            <div class="relative w-full overflow-hidden whitespace-nowrap mr-3">
-                <div class="animate-awareness flex items-center gap-8 text-xs md:text-sm text-gray-200">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-lock text-moi-gold"></i> تذكير أمني: لا تشارك رمز التحقق الثنائي (OTP) أو كلمة المرور المشفرة مع أي جهة كانت.</span>
-                    <span class="text-moi-gold/50">•</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-400"></i> احذر الروابط المشبوهة والبريد الإلكتروني المجهول (Phishing) - تحقق دائماً من النطاق الحكومي الرسمي (.gov.sa).</span>
-                    <span class="text-moi-gold/50">•</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-moi-goldLight"></i> تحديث أنظمة الحماية وتشفير الأجهزة الميدانية يتم دورياً بالتنسيق مع الهيئة الوطنية للأمن السيبراني.</span>
-                    <span class="text-moi-gold/50">•</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-user-shield text-emerald-400"></i> البلاغات السيبرانية الفورية متاحة 24/7 عبر الوردية الأمنية المناوبة.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MAIN CONTAINER -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
-
-        <!-- HERO DASHBOARD BANNER -->
-        <div class="glass-panel rounded-2xl p-6 lg:p-8 relative overflow-hidden shadow-2xl">
-            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-moi-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-moi-gold/20 text-moi-gold border border-moi-gold/40 text-xs font-semibold mb-3">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-                        مركز العمليات والتحكم المركزي • الرياض
-                    </div>
-                    <h2 class="text-2xl lg:text-3xl font-black font-cairo gold-gradient-text">
-                        منظومة الأجهزة المصرحة والرقابة السيبرانية المشفرة
-                    </h2>
-                    <p class="text-gray-300 text-sm mt-2 max-w-2xl leading-relaxed">
-                        لوحة تحكم إدارية متكاملة لربط كافة الوحدات الطرفية والأجهزة الأمنية، مع إشراف دائم لكوادرنا الوطنية النسائية المتخصصة في الأمن الرقمي على مدار الساعة.
-                    </p>
-                </div>
-                
-                <!-- Quick KPI Badges -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full md:w-auto">
-                    <div class="bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center">
-                        <div class="text-xs text-gray-400">الأجهزة النشطة</div>
-                        <div class="text-xl font-bold font-mono text-moi-gold mt-1">1,489</div>
-                        <div class="text-[10px] text-emerald-400 flex items-center justify-center gap-1 mt-0.5">
-                            <i class="fa-solid fa-circle-check"></i> متصل ومشفر
-                        </div>
-                    </div>
-                    <div class="bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center">
-                        <div class="text-xs text-gray-400">محاولات الاختراق المصدودة</div>
-                        <div class="text-xl font-bold font-mono text-red-400 mt-1">100%</div>
-                        <div class="text-[10px] text-gray-400">درع جدار الحماية</div>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1 bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center">
-                        <div class="text-xs text-gray-400">حالة الوردية</div>
-                        <div class="text-sm font-bold text-moi-goldLight mt-1" id="activeShiftName">الوردية الصباحية</div>
-                        <div class="text-[10px] text-moi-gold flex items-center justify-center gap-1 mt-0.5">
-                            <i class="fa-solid fa-headset"></i> دعم مباشر
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 1: SAUDI FEMALE SPECIALISTS & SHIFTS (الكوادر الوطنية النسائية الثلاث - 8 ساعات لكل شفت) -->
-        <section>
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 pb-2 border-b border-moi-gold/30">
-                <div>
-                    <span class="text-moi-gold text-xs font-bold tracking-wider">فخر الكفاءات الوطنية</span>
-                    <h3 class="text-2xl font-bold font-cairo text-white flex items-center gap-2">
-                        <i class="fa-solid fa-user-shield text-moi-gold"></i>
-                        أخصائيات الاستجابة والدعم الأمني (24/7)
-                    </h3>
-                </div>
-                <p class="text-xs text-gray-300 mt-1 md:mt-0">
-                    نظام المناوبات الأمنية: 3 شفتات يومية بواقع 8 ساعات متواصلة لكل متخصصة بلهجة سعودية أصيلة ومهنية عالية.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <!-- 1. نورة الحربي (الشفت الصباحي) -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl group flex flex-col justify-between">
-                    <div class="p-5">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 rounded-full text-xs font-bold flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-                                على رأس العمل (مباشر)
-                            </span>
-                            <span class="text-xs font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">
-                                الشفت 1: 07:00 ص - 03:00 م
-                            </span>
-                        </div>
-
-                        <!-- Saudi Female Avatar -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="نورة الحربي" class="w-full h-full object-cover rounded-full filter contrast-105">
-                                <div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]" title="موثقة أمنياً">
-                                    <i class="fa-solid fa-circle-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white font-cairo">نورة بنت سعد الحربي</h4>
-                                <p class="text-xs text-moi-gold font-medium">أخصائية العمليات السيبرانية الأولى</p>
-                                <span class="text-[11px] text-gray-400">الرقم المكتبي: MOI-SEC-4091</span>
-                            </div>
-                        </div>
-
-                        <!-- Saudi Dialect Quote Card -->
-                        <div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative">
-                            <i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i>
-                            <p class="text-xs text-gray-200 leading-relaxed font-tajawal">
-                                <strong class="text-moi-goldLight block mb-1">« سمّ طال عمرك، آمر وتدلل »</strong>
-                                "أهلاً بك في بوابة العمليات.. جاهزة لمساندتك وتدقيق صلاحيات الأجهزة وحمايتها على مدار شفت الصباح، حياك الله بأي لحظة."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between">
-                        <span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الصباحي (8 ساعات)</span>
-                        <button onclick="contactAgent('نورة الحربي', 'الشفت الصباحي (07:00 ص - 03:00 م)', 'سمّ طال عمرك')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition">
-                            <i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 2. ريم القحطاني (الشفت المسائي) -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl group flex flex-col justify-between">
-                    <div class="p-5">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 bg-amber-950/80 text-amber-300 border border-amber-500/40 rounded-full text-xs font-bold flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                                جاهزية تسليم الوردية
-                            </span>
-                            <span class="text-xs font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">
-                                الشفت 2: 03:00 م - 11:00 م
-                            </span>
-                        </div>
-
-                        <!-- Saudi Female Avatar -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="ريم القحطاني" class="w-full h-full object-cover rounded-full filter contrast-105">
-                                <div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]" title="موثقة أمنياً">
-                                    <i class="fa-solid fa-circle-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white font-cairo">ريم بنت فهد القحطاني</h4>
-                                <p class="text-xs text-moi-gold font-medium">مشرفة أمن المنافذ والمعلومات</p>
-                                <span class="text-[11px] text-gray-400">الرقم المكتبي: MOI-SEC-6022</span>
-                            </div>
-                        </div>
-
-                        <!-- Saudi Dialect Quote Card -->
-                        <div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative">
-                            <i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i>
-                            <p class="text-xs text-gray-200 leading-relaxed font-tajawal">
-                                <strong class="text-moi-goldLight block mb-1">« يا هلا ومسهلا بك »</strong>
-                                "مساء الخير، مراقبة المنظومة مستمرة بدقة عالية، لا تشيل هم أي بلاغ أو إعادة ضبط للأجهزة، حنا بالخدمة في شفت المساء."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between">
-                        <span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت المسائي (8 ساعات)</span>
-                        <button onclick="contactAgent('ريم القحطاني', 'الشفت المسائي (03:00 م - 11:00 م)', 'يا هلا ومسهلا بك')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition">
-                            <i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 3. مها العتيبي (شفت الطوارئ الليلي) -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl group flex flex-col justify-between">
-                    <div class="p-5">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 bg-purple-950/80 text-purple-300 border border-purple-500/40 rounded-full text-xs font-bold flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                                الاستجابة الليلية للطوارئ
-                            </span>
-                            <span class="text-xs font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">
-                                الشفت 3: 11:00 م - 07:00 ص
-                            </span>
-                        </div>
-
-                        <!-- Saudi Female Avatar -->
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="مها العتيبي" class="w-full h-full object-cover rounded-full filter contrast-105">
-                                <div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]" title="موثقة أمنياً">
-                                    <i class="fa-solid fa-circle-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white font-cairo">مها بنت عبدالعزيز العتيبي</h4>
-                                <p class="text-xs text-moi-gold font-medium">مهندسة الاستجابة للحوادث الطارئة</p>
-                                <span class="text-[11px] text-gray-400">الرقم المكتبي: MOI-SEC-8815</span>
-                            </div>
-                        </div>
-
-                        <!-- Saudi Dialect Quote Card -->
-                        <div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative">
-                            <i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i>
-                            <p class="text-xs text-gray-200 leading-relaxed font-tajawal">
-                                <strong class="text-moi-goldLight block mb-1">« حياك الله طال عمرك، عيوننا ساهرة »</strong>
-                                "الوردية الليلية على أهبة الاستعداد لكل طارئ سيبراني أو تدقيق للأرقام السرية، ناموا ملء جفونكم ونظامكم بأمان تام."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between">
-                        <span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الليلي (8 ساعات)</span>
-                        <button onclick="contactAgent('مها العتيبي', 'الشفت الليلي (11:00 م - 07:00 ص)', 'حياك الله طال عمرك، عيوننا ساهرة')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition">
-                            <i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 2: REGISTERED SECURE DEVICES (الأجهزة المسجلة بالمنظومة) -->
-        <section>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 pb-2 border-b border-moi-gold/30 gap-4">
-                <div>
-                    <span class="text-moi-gold text-xs font-bold tracking-wider">سجل العتاد والاتصالات الرقمية</span>
-                    <h3 class="text-2xl font-bold font-cairo text-white flex items-center gap-2">
-                        <i class="fa-solid fa-laptop-medical text-moi-gold"></i>
-                        الأجهزة المسجلة والمربوطة بالخادم الأمني
-                    </h3>
-                </div>
-                
-                <!-- Filter Tabs -->
-                <div class="flex items-center gap-2 bg-moi-dark/80 p-1 rounded-xl border border-moi-gold/30 text-xs">
-                    <button onclick="filterDevices('all')" class="device-tab active bg-moi-gold text-moi-dark font-bold px-3 py-1.5 rounded-lg transition" data-filter="all">الكل (6)</button>
-                    <button onclick="filterDevices('laptop')" class="device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition" data-filter="laptop">أجهزة العمليات</button>
-                    <button onclick="filterDevices('field')" class="device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition" data-filter="field">الأجهزة الميدانية</button>
-                </div>
-            </div>
-
-            <!-- Device Cards Grid with Realistic Photos & High Tech Details -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="devicesContainer">
-
-                <!-- Device 1: Rugged Military Laptop -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="laptop">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=600&q=80" alt="كمبيوتر العمليات المشفر" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400">
-                            <i class="fa-solid fa-signal ml-1"></i> متصل - آمن
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.12.88
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">محطة القيادة والتحكم المتنقلة (Toughbook)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">معالج تشفير عسكري CryptoCore V9</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-9801</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">اللواء د. خالد السديري</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">AES-256 GCM (معتمد)</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">4A:88:2C:99:FF:01</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('محطة القيادة Toughbook')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('محطة القيادة Toughbook', '10.240.12.88', 'AES-256 GCM')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Device 2: Biometric Border Scanner Device -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="field">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="قارئ البصمات والمنافذ" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400">
-                            <i class="fa-solid fa-fingerprint ml-1"></i> وحدة بيومترية نشطة
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.45.19
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">جهاز المطابقة الحيوية الميداني (BioPad)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">منصة الربط المباشر مع قواعد مركز المعلومات</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-4432</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">النقيب سعود الدوسري</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">Quantum-Safe FIPS 140</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">00:1B:44:11:3A:B7</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('جهاز المطابقة BioPad')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('جهاز المطابقة BioPad', '10.240.45.19', 'Quantum-Safe')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Device 3: Secure Tactical Radio & Tablet -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="field">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="لوحي الدورية الأمنية الذكية" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400">
-                            <i class="fa-solid fa-tower-broadcast ml-1"></i> شبكة تيترا الأمنية
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.89.04
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">لوحي الدورية الذكية المشفر (Patrol-Tab)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">مقاوم للصدمات مع كشف المسار وتحديد الموقع</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-7721</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">الملازم أول فهد الشهري</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">TETRA E2EE Class 3</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">C8:D7:19:62:09:44</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('لوحي الدورية Patrol-Tab')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('لوحي الدورية Patrol-Tab', '10.240.89.04', 'TETRA E2EE')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Device 4: SOC Analyst Terminal -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="laptop">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="محطة تحليل الهجمات" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400">
-                            <i class="fa-solid fa-shield-virus ml-1"></i> جدار حماية مباشر
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.02.14
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">محطة رصد التهديدات السيبرانية (SOC-Desk)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">غرفة المراقبة والتحليل الأمني الرقمي</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-1102</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">العقيد م. فيصل الشمري</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">TLS 1.3 / ChaCha20</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">E4:54:E8:22:1F:65</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('محطة الرصد SOC-Desk')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('محطة الرصد SOC-Desk', '10.240.02.14', 'TLS 1.3 / ChaCha20')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Device 5: Drone Telemetry Unit -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="field">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80" alt="وحدة التحكم بطائرات المراقبة" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-amber-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-amber-400">
-                            <i class="fa-solid fa-satellite-dish ml-1"></i> تشفير قمر صناعي
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.77.10
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">وحدة التحكم بمسيرات الاستطلاع (Falcon-UAV)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">محطة بث فيديو آمن عبر الأقمار السعودية</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-3309</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">الرائد بدر بن نايف العتيبي</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">Badr-Crypto Sat 5</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">3C:7A:8A:77:4B:91</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('وحدة الاستطلاع Falcon-UAV')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('وحدة الاستطلاع Falcon-UAV', '10.240.77.10', 'Badr-Crypto Sat 5')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Device 6: Client Secured Portal Terminal -->
-                <div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="laptop">
-                    <div class="h-48 relative overflow-hidden bg-black/60">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="جهاز البوابة الموثقة للعميل" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400">
-                            <i class="fa-solid fa-circle-check ml-1"></i> مصرح للعميل
-                        </span>
-                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">
-                            IP: 10.240.90.31
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-white text-base">جهاز المستخدم/العميل المعتمد (Client Terminal)</h4>
-                                <p class="text-xs text-gray-400 mt-0.5">نفاذ وطني موحد مع حماية المفاتيح الرقمية</p>
-                            </div>
-                            <span class="text-xs font-mono text-moi-gold font-bold">#DEV-5561</span>
-                        </div>
-
-                        <div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">المستخدم المسؤول:</span>
-                                <span class="font-medium text-moi-goldLight">د. طارق بن سليمان العنيزي</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">مستوى التشفير:</span>
-                                <span class="text-emerald-400 font-mono">PKI 4096-bit SmartCard</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">عنوان MAC:</span>
-                                <span class="font-mono text-gray-300">18:65:90:D1:88:20</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2">
-                            <button onclick="openPasswordModal('جهاز العميل Client Terminal')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition">
-                                <i class="fa-solid fa-key"></i> تجديد كلمة السر
-                            </button>
-                            <button onclick="inspectDevice('جهاز العميل Client Terminal', '10.240.90.31', 'PKI 4096-bit')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 3: CYBER DEFENSE AWARENESS INTERACTIVE BOARD -->
-        <section class="glass-panel-dark rounded-2xl p-6 border border-moi-gold/30">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="p-2.5 rounded-lg bg-moi-gold/20 text-moi-gold border border-moi-gold/40">
-                    <i class="fa-solid fa-bullhorn text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white font-cairo">إعلانات الإرشاد الأمني والوقاية السيبرانية</h3>
-                    <p class="text-xs text-gray-400">مبادئ أساسية ملزمة لجميع منسوبي ومستخدمي أنظمة وزارة الداخلية</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3">
-                    <div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-fingerprint"></i></div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-1">المصادقة الثنائية الإلزامية</h4>
-                        <p class="text-gray-300 leading-relaxed">عدم تفعيل التحقق عبر تطبيق نفاذ أو الرموز المؤقتة يعرض حساب الجهاز للإيقاف الفوري الاحترازي.</p>
-                    </div>
-                </div>
-
-                <div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3">
-                    <div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-shield-virus"></i></div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-1">حظر وسائط التخزين الخارجية</h4>
-                        <p class="text-gray-300 leading-relaxed">يُمنع ربط أي ذاكرة فلاش أو أقراص غير مفحوصة ومختومة بشهادة أمان من مركز العمليات الوطني.</p>
-                    </div>
-                </div>
-
-                <div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3">
-                    <div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-1">التغيير الدوري للرقم السري</h4>
-                        <p class="text-gray-300 leading-relaxed">يجب تحديث الأرقام السرية كل 45 يوماً مع مراعاة التعقيد والأحرف الخاصة وفق سياسة الوزارة.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER WITH MOI ROYALS & COPYRIGHTS -->
-    <footer class="mt-16 border-t border-moi-gold/30 bg-moi-dark py-8 text-center text-xs text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center space-y-3">
-            <div class="flex items-center gap-2 text-moi-gold font-bold">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>الإدارة العامة للأمن السيبراني وتقنية المعلومات • وزارة الداخلية</span>
-            </div>
-            <p class="text-gray-400 text-[11px]">
-                جميع الحقوق محفوظة للمملكة العربية السعودية © <span id="currentYear"></span> - منصة المراقبة والتحكم الأمني الموحد
-            </p>
-            <div class="flex gap-4 text-moi-gold/70 text-xs">
-                <span>سياسة الخصوصية والسرية</span>
-                <span>•</span>
-                <span>معايير الهيئة الوطنية للأمن السيبراني NCA</span>
-                <span>•</span>
-                <span>قنوات التواصل الرسمية</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ==================== SLIDING DRAWER (القائمة الانزلاقية للمستخدمين والدور البديل) ==================== -->
-    <div id="userDrawerOverlay" onclick="toggleUserDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-
-    <aside id="userDrawer" class="fixed top-0 left-0 bottom-0 w-full sm:w-[420px] bg-moi-dark border-r border-moi-gold/40 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
-        <!-- Drawer Header -->
-        <div class="p-5 border-b border-moi-gold/30 bg-moi-deep/60 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="p-2 rounded-lg bg-moi-gold/20 text-moi-gold border border-moi-gold/40">
-                    <i class="fa-solid fa-users-viewfinder text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-white text-base font-cairo">إدارة الأدوار والمستخدمين</h3>
-                    <p class="text-xs text-moi-gold">انتقال سلس بين المشرف، الدعم والعميل</p>
-                </div>
-            </div>
-            <button onclick="toggleUserDrawer()" class="p-2 rounded-full hover:bg-moi-gold/20 text-gray-300 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-        </div>
-
-        <!-- Role Context Switch Banner -->
-        <div class="p-4 bg-moi-green/20 border-b border-moi-gold/20 text-xs text-moi-goldLight flex items-center gap-2">
-            <i class="fa-solid fa-circle-info text-moi-gold"></i>
-            <span>اضغط على أي مستخدم لتفعيل «الدور البديل» أو تعديل الرقم السري فورياً.</span>
-        </div>
-
-        <!-- User Accounts List -->
-        <div class="flex-1 overflow-y-auto p-4 space-y-3" id="usersList">
-
-            <!-- User 1: Supervisor -->
-            <div class="p-3.5 rounded-xl border border-moi-gold/30 bg-moi-deep/40 hover:bg-moi-deep/70 transition flex flex-col gap-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold flex items-center justify-center text-moi-gold font-bold">
-                            <i class="fa-solid fa-user-shield"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">اللواء د. خالد بن فهد السديري</h4>
-                            <span class="text-[11px] text-moi-gold font-semibold">المشرف العام على المنظومة</span>
-                        </div>
-                    </div>
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">الحالي</span>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                    <button onclick="switchUserRole('اللواء د. خالد بن فهد السديري', 'المشرف العام')" class="text-moi-gold hover:text-white font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور البديل
-                    </button>
-                    <button onclick="openPasswordModal('اللواء د. خالد السديري')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20">
-                        <i class="fa-solid fa-key"></i> تعديل الرقم السري
-                    </button>
-                </div>
-            </div>
-
-            <!-- User 2: Tech Support Lead -->
-            <div class="p-3.5 rounded-xl border border-moi-gold/20 bg-moi-deep/20 hover:bg-moi-deep/50 transition flex flex-col gap-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold/40 flex items-center justify-center text-moi-goldLight font-bold">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">العقيد م. فيصل بن عبدالله الشمري</h4>
-                            <span class="text-[11px] text-amber-300 font-semibold">مدير الدعم الفني والأمن السيبراني</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                    <button onclick="switchUserRole('العقيد م. فيصل الشمري', 'مدير الدعم الفني')" class="text-moi-gold hover:text-white font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور البديل
-                    </button>
-                    <button onclick="openPasswordModal('العقيد م. فيصل الشمري')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20">
-                        <i class="fa-solid fa-key"></i> تعديل الرقم السري
-                    </button>
-                </div>
-            </div>
-
-            <!-- User 3: Operations Officer -->
-            <div class="p-3.5 rounded-xl border border-moi-gold/20 bg-moi-deep/20 hover:bg-moi-deep/50 transition flex flex-col gap-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold/40 flex items-center justify-center text-moi-goldLight font-bold">
-                            <i class="fa-solid fa-shield"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">النقيب سعود بن محمد الدوسري</h4>
-                            <span class="text-[11px] text-gray-300 font-semibold">مشرف العمليات الميدانية</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                    <button onclick="switchUserRole('النقيب سعود الدوسري', 'مشرف العمليات الميدانية')" class="text-moi-gold hover:text-white font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور البديل
-                    </button>
-                    <button onclick="openPasswordModal('النقيب سعود الدوسري')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20">
-                        <i class="fa-solid fa-key"></i> تعديل الرقم السري
-                    </button>
-                </div>
-            </div>
-
-            <!-- User 4: Saudi Female Officer - Noura -->
-            <div class="p-3.5 rounded-xl border border-moi-gold/20 bg-moi-deep/20 hover:bg-moi-deep/50 transition flex flex-col gap-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold/40 flex items-center justify-center text-moi-goldLight font-bold overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="نورة" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">أ. نورة بنت سعد الحربي</h4>
-                            <span class="text-[11px] text-emerald-400 font-semibold">أخصائية دعم العمليات (الوردية 1)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                    <button onclick="switchUserRole('أ. نورة الحربي', 'أخصائية دعم العمليات')" class="text-moi-gold hover:text-white font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور البديل
-                    </button>
-                    <button onclick="openPasswordModal('أ. نورة الحربي')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20">
-                        <i class="fa-solid fa-key"></i> تعديل الرقم السري
-                    </button>
-                </div>
-            </div>
-
-            <!-- User 5: Client/Citizen Profile -->
-            <div class="p-3.5 rounded-xl border border-moi-gold/20 bg-moi-deep/20 hover:bg-moi-deep/50 transition flex flex-col gap-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold/40 flex items-center justify-center text-moi-goldLight font-bold">
-                            <i class="fa-solid fa-id-card"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">د. طارق بن سليمان العنيزي</h4>
-                            <span class="text-[11px] text-blue-300 font-semibold">حساب العميل المصرح (نفاذ وطني)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                    <button onclick="switchUserRole('د. طارق العنيزي', 'العميل المصرح')" class="text-moi-gold hover:text-white font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور البديل
-                    </button>
-                    <button onclick="openPasswordModal('د. طارق العنيزي')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20">
-                        <i class="fa-solid fa-key"></i> تعديل الرقم السري
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Drawer Footer Status -->
-        <div class="p-4 border-t border-moi-gold/30 bg-moi-dark text-center text-xs text-gray-400">
-            <span class="text-moi-gold font-bold">نظام صلاحيات قائم على الدور (RBAC)</span>
-            <p class="text-[10px] text-gray-400 mt-0.5">كافة عمليات التبديل مسجلة في سجل التدقيق الأمني المشفّر</p>
-        </div>
-    </aside>
-
-    <!-- ==================== PASSWORD EDIT MODAL (تعديل الرقم السري للعميل أو المشرف أو الدعم الفني) ==================== -->
-    <div id="passwordModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="bg-moi-dark border-2 border-moi-gold w-full max-w-lg rounded-2xl p-6 shadow-2xl relative transform scale-95 transition-all duration-300" id="passwordModalCard">
-            
-            <div class="flex items-center justify-between pb-4 border-b border-moi-gold/30">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-moi-gold/20 text-moi-gold border border-moi-gold flex items-center justify-center">
-                        <i class="fa-solid fa-lock-open text-lg"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white font-cairo">تعديل الرقم السري المشفر</h3>
-                        <p class="text-xs text-moi-gold" id="targetAccountLabel">الملف المستهدف: المشرف العام</p>
-                    </div>
-                </div>
-                <button onclick="closePasswordModal()" class="text-gray-400 hover:text-white text-lg p-1">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Form -->
-            <form id="passwordForm" onsubmit="handlePasswordSubmit(event)" class="mt-5 space-y-4 text-xs">
-                <div>
-                    <label class="block text-gray-300 font-bold mb-1">الرقم السري الحالي / كود التحقق الأمني:</label>
-                    <div class="relative">
-                        <input type="password" required id="oldPass" placeholder="••••••••" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9 focus:border-moi-gold focus:outline-none">
-                        <i class="fa-solid fa-shield absolute right-3 top-3 text-moi-gold/60"></i>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-gray-300 font-bold mb-1">الرقم السري الجديد المعقد:</label>
-                    <div class="relative">
-                        <input type="password" required id="newPass" oninput="checkPassStrength(this.value)" placeholder="أدخل كلمة مرور قوية (أحرف، أرقام، رموز)" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9 focus:border-moi-gold focus:outline-none">
-                        <i class="fa-solid fa-key absolute right-3 top-3 text-moi-gold/60"></i>
-                    </div>
-                    
-                    <!-- Strength meter -->
-                    <div class="mt-2">
-                        <div class="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
-                            <div id="strengthBar" class="h-full bg-red-500 w-1/4 transition-all duration-300"></div>
-                        </div>
-                        <span id="strengthText" class="text-[10px] text-gray-400 block mt-1">قوة كلمة المرور: ضعيفة</span>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-gray-300 font-bold mb-1">تأكيد الرقم السري الجديد:</label>
-                    <div class="relative">
-                        <input type="password" required id="confirmPass" placeholder="إعادة كتابة الرقم السري" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9 focus:border-moi-gold focus:outline-none">
-                        <i class="fa-solid fa-check-double absolute right-3 top-3 text-moi-gold/60"></i>
-                    </div>
-                </div>
-
-                <div class="bg-moi-gold/10 border border-moi-gold/30 p-3 rounded-lg text-gray-300 text-[11px] leading-relaxed">
-                    <i class="fa-solid fa-triangle-exclamation text-moi-gold ml-1"></i>
-                    تنبيه: سيتم إرسال إشعار فوري وتوثيق تعديل كلمة المرور في البوابة الأمنية وسجل العمليات لوزارة الداخلية.
-                </div>
-
-                <div class="flex items-center justify-end gap-3 pt-3 border-t border-moi-gold/20">
-                    <button type="button" onclick="closePasswordModal()" class="px-4 py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition">
-                        إلغاء
-                    </button>
-                    <button type="submit" class="px-5 py-2 rounded-lg bg-gradient-to-l from-moi-gold to-moi-goldDark hover:from-moi-goldLight hover:to-moi-gold text-moi-dark font-bold font-cairo shadow-lg transition">
-                        حفظ وتطبيق التشفير
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- ==================== AGENT CHAT / DIRECT DIAL MODAL ==================== -->
-    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="bg-moi-dark border-2 border-moi-gold w-full max-w-md rounded-2xl p-6 shadow-2xl relative text-center">
-            <div class="w-20 h-20 mx-auto rounded-full border-2 border-moi-gold p-1 bg-moi-deep shadow-xl mb-4">
-                <img id="agentModalImg" src="" alt="الموظفة" class="w-full h-full object-cover rounded-full">
-            </div>
-            <h3 class="text-xl font-bold text-white font-cairo" id="agentModalName">نورة بنت سعد الحربي</h3>
-            <span class="text-xs text-moi-gold font-bold block mt-1" id="agentModalShift">الشفت الصباحي</span>
-            
-            <div class="my-5 p-4 rounded-xl bg-moi-deep/60 border border-moi-gold/30 text-sm text-gray-200 font-tajawal leading-relaxed" id="agentModalQuote">
-                "سمّ طال عمرك، حياك الله. معك الدعم الأمني النسائي بوزارة الداخلية."
-            </div>
-
-            <div class="flex flex-col gap-2">
-                <button onclick="startSecureCall()" class="w-full py-2.5 bg-moi-green hover:bg-moi-light text-white font-bold rounded-lg border border-moi-gold/40 flex items-center justify-center gap-2 text-xs transition">
-                    <i class="fa-solid fa-phone-volume animate-pulse text-moi-goldLight"></i>
-                    بدء اتصال صوتي مشفر فوري (VoIP أمني)
-                </button>
-                <button onclick="closeContactModal()" class="w-full py-2 bg-gray-800 text-gray-300 rounded-lg text-xs hover:bg-gray-700 transition">
-                    إغلاق النافذة
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- NOTIFICATION TOAST -->
-    <div id="toastNotification" class="fixed bottom-6 left-6 z-50 bg-moi-deep text-white border-2 border-moi-gold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 text-xs font-bold">
-        <i class="fa-solid fa-circle-check text-moi-gold text-lg" id="toastIcon"></i>
-        <span id="toastMessage">تم تنفيذ الإجراء بنجاح</span>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // Set dynamic Year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // 1. Sliding Drawer Controls (القائمة الانزلاقية للمستخدمين والدور البديل)
-        function toggleUserDrawer() {
-            const drawer = document.getElementById('userDrawer');
-            const overlay = document.getElementById('userDrawerOverlay');
-            
-            const isOpen = !drawer.classList.contains('-translate-x-full');
-            if (isOpen) {
-                drawer.classList.add('-translate-x-full');
-                overlay.classList.remove('opacity-100', 'pointer-events-auto');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            } else {
-                drawer.classList.remove('-translate-x-full');
-                overlay.classList.add('opacity-100', 'pointer-events-auto');
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        // 2. Switch Active Role / User (تفعيل الدور البديل لجميع المستخدمين)
-        function switchUserRole(userName, roleTitle) {
-            document.getElementById('currentLoggedUser').textContent = userName;
-            toggleUserDrawer();
-            showToast(`تم الانتقال إلى الدور البديل بنجاح: ${userName} (${roleTitle})`);
-        }
-
-        // 3. Password Modal Management (إمكانية تعديل الرقم السري من ملف العميل أو المشرف أو الدعم)
-        let activeTargetAccount = 'المشرف العام';
-
-        function openPasswordModal(targetUser = 'المشرف العام أو العميل') {
-            activeTargetAccount = targetUser;
-            document.getElementById('targetAccountLabel').textContent = `الملف المستهدف: ${targetUser}`;
-            
-            const modal = document.getElementById('passwordModal');
-            const card = document.getElementById('passwordModalCard');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100', 'pointer-events-auto');
-            card.classList.remove('scale-95');
-            card.classList.add('scale-100');
-            document.getElementById('passwordForm').reset();
-            checkPassStrength('');
-        }
-
-        function closePasswordModal() {
-            const modal = document.getElementById('passwordModal');
-            const card = document.getElementById('passwordModalCard');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.classList.remove('opacity-100', 'pointer-events-auto');
-            card.classList.add('scale-95');
-            card.classList.remove('scale-100');
-        }
-
-        function checkPassStrength(val) {
-            const bar = document.getElementById('strengthBar');
-            const txt = document.getElementById('strengthText');
-            if (!val || val.length < 4) {
-                bar.style.width = '20%';
-                bar.className = 'h-full bg-red-500 transition-all duration-300';
-                txt.textContent = 'قوة كلمة المرور: ضعيفة جداً';
-                txt.className = 'text-[10px] text-red-400 block mt-1';
-            } else if (val.length < 8) {
-                bar.style.width = '50%';
-                bar.className = 'h-full bg-amber-500 transition-all duration-300';
-                txt.textContent = 'قوة كلمة المرور: متوسطة (يُفضل إضافة رموز @#$)';
-                txt.className = 'text-[10px] text-amber-400 block mt-1';
-            } else {
-                bar.style.width = '100%';
-                bar.className = 'h-full bg-emerald-500 transition-all duration-300';
-                txt.textContent = 'قوة كلمة المرور: معقدة ومطابقة لمعايير الأمن السيبراني ✓';
-                txt.className = 'text-[10px] text-emerald-400 block mt-1 font-bold';
-            }
-        }
-
-        function handlePasswordSubmit(e) {
-            e.preventDefault();
-            const newPass = document.getElementById('newPass').value;
-            const confirmPass = document.getElementById('confirmPass').value;
-
-            if (newPass !== confirmPass) {
-                alert('تنبيه: كلمتا المرور غير متطابقتين، الرجاء التحقق.');
-                return;
-            }
-
-            closePasswordModal();
-            showToast(`تم تعديل وتشفير الرقم السري بنجاح لحساب: ${activeTargetAccount}`);
-        }
-
-        // 4. Device Filter Tabs
-        function filterDevices(category) {
-            const items = document.querySelectorAll('.device-item');
-            const tabs = document.querySelectorAll('.device-tab');
-
-            tabs.forEach(t => {
-                if (t.dataset.filter === category) {
-                    t.className = 'device-tab active bg-moi-gold text-moi-dark font-bold px-3 py-1.5 rounded-lg transition';
-                } else {
-                    t.className = 'device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition';
-                }
-            });
-
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        function inspectDevice(name, ip, crypto) {
-            alert(`بيانات الجهاز المعتمد:\nاسم المنظومة: ${name}\nالعنوان الشبكي: ${ip}\nخوارزمية التشفير: ${crypto}\nالحالة: مؤمّن وموثق بشهادة X.509 من وزارة الداخلية.`);
-        }
-
-        // 5. Saudi Female Specialists Contact Modal
-        function contactAgent(name, shift, dialectQuote) {
-            const modal = document.getElementById('contactModal');
-            document.getElementById('agentModalName').textContent = name;
-            document.getElementById('agentModalShift').textContent = shift;
-            document.getElementById('agentModalQuote').textContent = `« ${dialectQuote} »\nبوابتنا الأمنية ترحب بك دائماً، أهلاً وسهلاً بك طال عمرك.`;
-
-            let imgUrl = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80";
-            if (name.includes('ريم')) {
-                imgUrl = "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80";
-            } else if (name.includes('مها')) {
-                imgUrl = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80";
-            }
-            document.getElementById('agentModalImg').src = imgUrl;
-
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100', 'pointer-events-auto');
-        }
-
-        function closeContactModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.classList.remove('opacity-100', 'pointer-events-auto');
-        }
-
-        function startSecureCall() {
-            closeContactModal();
-            showToast('جاري إنشاء خط تشفير صوتي آمن عبر بروتوكول SRTP...');
-        }
-
-        // 6. Toast Notification Helper
-        function showToast(msg) {
-            const toast = document.getElementById('toastNotification');
-            const label = document.getElementById('toastMessage');
-            label.textContent = msg;
-            toast.classList.remove('translate-y-24', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-24', 'opacity-0');
-            }, 4000);
-        }
-
-        // Auto determine shift by real-time hour
-        (function detectRealTimeShift() {
-            const hour = new Date().getHours();
-            const shiftLabel = document.getElementById('activeShiftName');
-            if (hour >= 7 && hour < 15) {
-                shiftLabel.textContent = 'الوردية 1: نورة الحربي (صباحي)';
-            } else if (hour >= 15 && hour < 23) {
-                shiftLabel.textContent = 'الوردية 2: ريم القحطاني (مسائي)';
-            } else {
-                shiftLabel.textContent = 'الوردية 3: مها العتيبي (طوارئ ليلي)';
-            }
-        })();
-    </script>
+<!-- HEADER -->
+<header class="border-b border-moi-gold/30 bg-moi-dark/95 sticky top-0 z-40 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20 gap-3">
+<div class="flex items-center gap-3">
+<!-- X Verification Logo -->
+<div class="relative w-[60px] h-[60px] flex-shrink-0">
+<div class="w-[58px] h-[58px] rounded-full border-2 border-moi-gold p-[2px] bg-black shadow-lg shadow-black/50 flex items-center justify-center relative overflow-visible">
+<div class="w-full h-full rounded-full bg-gradient-to-b from-[#111] to-black flex items-center justify-center relative">
+<span class="font-black text-[28px] leading-none text-white font-cairo tracking-tighter">X</span>
+<div class="absolute inset-0 rounded-full border border-white/10"></div>
+</div>
+<div class="absolute -bottom-1 -left-1 w-7 h-7 rounded-full bg-gradient-to-br from-[#fce09b] via-moi-gold to-moi-goldDark border-[3px] border-[#02110c] flex items-center justify-center shadow-lg verified-pop">
+<i class="fa-solid fa-check text-[12px] text-black font-black"></i>
+</div>
+</div>
+<div class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#02110c] pulse-dot"></div>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-[11px] px-2 py-0.5 rounded bg-moi-gold/20 text-moi-goldLight border border-moi-gold/30 flex items-center gap-1"><i class="fa-solid fa-circle-check text-moi-gold"></i> حساب موثّق • نظام آمن 256-bit</span>
+<span id="liveClock" class="text-[11px] px-2 py-0.5 rounded bg-black/40 text-emerald-300 border border-emerald-500/20 font-mono">--:--:--</span>
+</div>
+<h1 class="text-lg md:text-2xl font-black gold-gradient-text font-cairo leading-tight mt-0.5">الإتصال الآمن <span class="text-sm md:text-base font-bold text-emerald-300" style="-webkit-text-fill-color:#6ee7b7">• توثيق الأجهزة الذكية</span></h1>
+<p class="text-[11px] text-gray-400 flex items-center gap-1"><i class="fa-solid fa-badge-check text-moi-gold"></i> شعار التوثيق المعتمد في منصة X للحسابات الرسمية</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="hidden lg:flex flex-col text-left text-xs bg-moi-deep/60 px-3 py-1.5 rounded-lg border border-moi-gold/30 min-w-[210px]">
+<span class="text-gray-300">المستخدم الحالي: <strong class="text-moi-gold" id="currentLoggedUser">اللواء د. خالد السديري</strong></span>
+<span class="text-emerald-400 font-mono text-[11px]"><i class="fa-solid fa-shield-halved ml-1"></i> <span id="currentRoleLabel">المشرف العام على المنظومة</span></span>
+</div>
+<button onclick="toggleUserDrawer()" class="flex items-center gap-2 bg-gradient-to-l from-moi-gold to-moi-goldDark hover:from-moi-goldLight hover:to-moi-gold text-moi-dark font-bold px-3 md:px-4 py-2.5 rounded-lg shadow-md hover:shadow-moi-gold/20 transition-all text-xs md:text-sm font-cairo">
+<i class="fa-solid fa-users-gear text-base"></i><span class="hidden sm:inline">دخول الأدوار والتسجيل</span><span class="sm:hidden">الدخول</span>
+</button>
+<button onclick="openPasswordModal()" title="تعديل الرقم السري" class="p-2.5 rounded-lg border border-moi-gold/40 bg-moi-deep/70 hover:bg-moi-gold/20 text-moi-gold transition-colors"><i class="fa-solid fa-key"></i></button>
+</div>
+</div>
+</div>
+<div class="shine-line"></div>
+</header>
+
+<!-- TICKER -->
+<section class="bg-gradient-to-r from-[#031c13] via-moi-deep to-[#031c13] border-b border-moi-gold/30 py-2.5 overflow-hidden shadow-inner">
+<div class="max-w-7xl mx-auto px-4 flex items-center">
+<div class="flex items-center gap-2 bg-moi-dark/90 px-3 py-1 rounded-md border border-moi-gold/40 text-moi-gold font-bold text-xs whitespace-nowrap z-10 shadow"><i class="fa-solid fa-shield-cat text-moi-goldLight text-sm animate-bounce"></i><span>نشرة التوعية السيبرانية:</span></div>
+<div class="relative w-full overflow-hidden whitespace-nowrap mr-3">
+<div class="animate-awareness items-center gap-8 text-xs md:text-sm text-gray-200">
+<span class="flex items-center gap-2"><i class="fa-solid fa-lock text-moi-gold"></i> وثّق جهازك الذكي الآن: حاسوب، لابتوب، جوال، أو جهاز ألعاب — التوثيق يحمي بياناتك ويمنع الاختراق.</span><span class="text-moi-gold/50 mx-4">•</span>
+<span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-400"></i> احذر الروابط المشبوهة والبريد المجهول — تحقق دائماً من شارة التوثيق الرسمية.</span><span class="text-moi-gold/50 mx-4">•</span>
+<span class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-moi-goldLight"></i> جميع الأجهزة المتصلة بالإنترنت تخضع للتوثيق والتشفير الدائم على مدار الساعة.</span><span class="text-moi-gold/50 mx-4">•</span>
+<span class="flex items-center gap-2"><i class="fa-solid fa-user-shield text-emerald-400"></i> كوادرنا الوطنية من الرجال والنساء في خدمتك 24/7 — معناّ يداّ بيد لحماية بلدنا وأمننا.</span><span class="text-moi-gold/50 mx-4">•</span>
+<span class="flex items-center gap-2"><i class="fa-solid fa-lock text-moi-gold"></i> وثّق جهازك الذكي الآن: حاسوب، لابتوب، جوال، أو جهاز ألعاب — التوثيق يحمي بياناتك ويمنع الاختراق.</span><span class="text-moi-gold/50 mx-4">•</span>
+<span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-400"></i> احذر الروابط المشبوهة والبريد المجهول — تحقق دائماً من شارة التوثيق الرسمية.</span><span class="text-moi-gold/50 mx-4">•</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MAIN -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+<!-- HERO -->
+<div class="glass-panel rounded-2xl p-6 lg:p-8 relative overflow-hidden shadow-2xl">
+<div class="absolute -left-16 -bottom-16 w-64 h-64 bg-moi-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-l from-moi-gold via-moi-goldLight to-moi-gold"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-moi-gold/20 text-moi-gold border border-moi-gold/40 text-xs font-bold mb-3"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span> معناّ يداّ بيد لحماية بلدنا وأمننا</div>
+<h2 class="text-3xl lg:text-4xl font-black font-cairo gold-gradient-text">منظومة الأجهزة الذكية</h2>
+<p class="text-gray-200 text-sm mt-3 max-w-2xl leading-relaxed">منصة متكاملة لتوثيق جميع الأجهزة الذكية من أجهزة حاسوب ولاب توب وهواتف اتصال وأجهزة ألعاب ذكية متصلة بشبكة الإنترنت، تحت إشراف دائم لكوادرنا الوطنية الرجالية والنسائية المتخصصة في الأمن الرقمي على مدار الساعة.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<button onclick="toggleUserDrawer()" class="bg-gradient-to-l from-moi-gold to-moi-goldDark text-moi-dark font-bold px-5 py-2.5 rounded-xl text-sm font-cairo shadow-lg hover:shadow-moi-gold/30 transition flex items-center gap-2"><i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول للأدوار</button>
+<button onclick="document.getElementById('devicesSection').scrollIntoView({behavior:'smooth'})" class="border border-moi-gold/50 text-moi-goldLight px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-moi-gold/10 transition flex items-center gap-2"><i class="fa-solid fa-microchip"></i> استعراض الأجهزة الموثقة</button>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full md:w-auto md:min-w-[380px]">
+<div class="bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center"><div class="text-xs text-gray-400">الأجهزة الموثقة</div><div class="text-xl font-bold font-mono text-moi-gold mt-1" id="kpiDevices">12,486</div><div class="text-[10px] text-emerald-400 flex items-center justify-center gap-1 mt-0.5"><i class="fa-solid fa-circle-check"></i> موثق ومشفر</div></div>
+<div class="bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center"><div class="text-xs text-gray-400">محاولات مصدودة</div><div class="text-xl font-bold font-mono text-red-400 mt-1">100%</div><div class="text-[10px] text-gray-400">درع الحماية</div></div>
+<div class="col-span-2 sm:col-span-1 bg-moi-dark/80 p-3.5 rounded-xl border border-moi-gold/30 text-center"><div class="text-xs text-gray-400">حالة الوردية</div><div class="text-[13px] font-bold text-moi-goldLight mt-1" id="activeShiftName">الوردية الصباحية</div><div class="text-[10px] text-moi-gold flex items-center justify-center gap-1 mt-0.5"><i class="fa-solid fa-headset"></i> دعم مباشر</div></div>
+</div>
+</div>
+<!-- mini stats -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 text-center text-xs">
+<div class="bg-black/30 rounded-xl p-3 border border-white/5"><i class="fa-solid fa-desktop text-moi-gold text-lg"></i><div class="font-bold mt-1 text-white">4,210</div><div class="text-gray-400">حاسوب ولابتوب</div></div>
+<div class="bg-black/30 rounded-xl p-3 border border-white/5"><i class="fa-solid fa-mobile-screen text-moi-gold text-lg"></i><div class="font-bold mt-1 text-white">6,132</div><div class="text-gray-400">هواتف اتصال</div></div>
+<div class="bg-black/30 rounded-xl p-3 border border-white/5"><i class="fa-solid fa-gamepad text-moi-gold text-lg"></i><div class="font-bold mt-1 text-white">1,845</div><div class="text-gray-400">أجهزة ألعاب ذكية</div></div>
+<div class="bg-black/30 rounded-xl p-3 border border-white/5"><i class="fa-solid fa-tablet-screen-button text-moi-gold text-lg"></i><div class="font-bold mt-1 text-white">799</div><div class="text-gray-400">لوحيات وساعات</div></div>
+</div>
+</div>
+
+<!-- SPECIALISTS -->
+<section>
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-6 pb-2 border-b border-moi-gold/30 gap-2">
+<div>
+<span class="text-moi-gold text-xs font-bold tracking-wider">فخر الكفاءات الوطنية • رجال ونساء</span>
+<h3 class="text-2xl font-bold font-cairo text-white flex items-center gap-2"><i class="fa-solid fa-user-shield text-moi-gold"></i> أخصائيو الاستجابة والدعم الأمني (24/7)</h3>
+</div>
+<p class="text-xs text-gray-300 mt-1 md:mt-0 max-w-md leading-relaxed">فريق وطني مختلط من الرجال والنساء المتخصصين في توثيق الأجهزة الذكية وحمايتها بمهنية عالية ولهجة سعودية أصيلة.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="agentsGrid">
+
+<!-- Noura -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span> على رأس العمل</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 1: 07ص - 03م</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="نورة الحربي" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">نورة بنت سعد الحربي</h4><p class="text-xs text-moi-gold font-medium">أخصائية توثيق الأجهزة الذكية</p><span class="text-[11px] text-gray-400">MOI-SEC-4091</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« سمّ طال عمرك، آمر وتدلل »</strong> أهلاً بك في الإتصال الآمن.. جاهزة لتوثيق جهازك وحمايته على مدار شفت الصباح، حياك الله بأي لحظة.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الصباحي</span><button onclick="contactAgent('نورة الحربي','الشفت الصباحي (07:00 ص - 03:00 م)','سمّ طال عمرك')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+<!-- Abdullah male -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span> على رأس العمل</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 1: 07ص - 03م</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="عبدالله المطيري" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">م. عبدالله المطيري</h4><p class="text-xs text-moi-gold font-medium">أخصائي الحواسيب واللابتوب</p><span class="text-[11px] text-gray-400">MOI-SEC-5110</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« أبشر بالخير، حنا بخدمتك »</strong> مختص بتوثيق الحواسيب واللابتوبات وفحصها الأمني الشامل، لا تتردد بالتواصل في وردية الصباح.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الصباحي</span><button onclick="contactAgent('م. عبدالله المطيري','الشفت الصباحي (07:00 ص - 03:00 م)','أبشر بالخير، حنا بخدمتك')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+<!-- Reem -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-amber-950/80 text-amber-300 border border-amber-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> جاهزية الوردية</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 2: 03م - 11م</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="ريم القحطاني" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">ريم بنت فهد القحطاني</h4><p class="text-xs text-moi-gold font-medium">مشرفة توثيق الهواتف الذكية</p><span class="text-[11px] text-gray-400">MOI-SEC-6022</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« يا هلا ومسهلا بك »</strong> مساء الخير، مراقبة الأجهزة مستمرة بدقة عالية، لا تشيل هم توثيق جوالك أو إعادة ضبطه، حنا بالخدمة.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت المسائي</span><button onclick="contactAgent('ريم القحطاني','الشفت المسائي (03:00 م - 11:00 م)','يا هلا ومسهلا بك')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+<!-- Sultan male -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-amber-950/80 text-amber-300 border border-amber-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> جاهزية الوردية</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 2: 03م - 11م</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="سلطان الغامدي" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">م. سلطان الغامدي</h4><p class="text-xs text-moi-gold font-medium">أخصائي أجهزة الألعاب الذكية</p><span class="text-[11px] text-gray-400">MOI-SEC-7340</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« حياك الله، دربك خضر »</strong> مسؤول عن توثيق البلايستيشن والإكس بوكس وحماية حسابات اللاعبين من الاختراق والتسريب.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت المسائي</span><button onclick="contactAgent('م. سلطان الغامدي','الشفت المسائي (03:00 م - 11:00 م)','حياك الله، دربك خضر')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+<!-- Maha -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-purple-950/80 text-purple-300 border border-purple-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-purple-400"></span> طوارئ ليلية</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 3: 11م - 07ص</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="مها العتيبي" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">مها بنت عبدالعزيز العتيبي</h4><p class="text-xs text-moi-gold font-medium">مهندسة الاستجابة للطوارئ</p><span class="text-[11px] text-gray-400">MOI-SEC-8815</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« عيوننا ساهرة لخدمتكم »</strong> الوردية الليلية على أهبة الاستعداد لكل طارئ أو تدقيق للأرقام السرية، أجهزتكم بأمان تام.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الليلي</span><button onclick="contactAgent('مها العتيبي','الشفت الليلي (11:00 م - 07:00 ص)','حياك الله طال عمرك، عيوننا ساهرة')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+<!-- Fahad male night -->
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/40 hover:border-moi-gold transition-all duration-300 shadow-xl flex flex-col justify-between">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4 gap-2"><span class="px-2.5 py-1 bg-purple-950/80 text-purple-300 border border-purple-500/40 rounded-full text-[11px] font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-purple-400"></span> طوارئ ليلية</span><span class="text-[11px] font-mono text-moi-gold font-bold bg-moi-dark/80 px-2.5 py-1 rounded border border-moi-gold/20">شفت 3: 11م - 07ص</span></div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-16 h-16 rounded-full border-2 border-moi-gold overflow-hidden bg-moi-dark p-0.5 shadow-md flex-shrink-0"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80" alt="فهد الشمري" class="w-full h-full object-cover rounded-full"><div class="absolute bottom-0 right-0 bg-moi-gold text-moi-dark p-1 rounded-full text-[9px]"><i class="fa-solid fa-circle-check"></i></div></div>
+<div><h4 class="text-lg font-bold text-white font-cairo">م. فهد الشمري</h4><p class="text-xs text-moi-gold font-medium">مهندس الشبكات والتشفير الليلي</p><span class="text-[11px] text-gray-400">MOI-SEC-9021</span></div>
+</div>
+<div class="bg-moi-dark/90 rounded-xl p-3.5 border-r-4 border-moi-gold border-y border-l border-white/5 relative"><i class="fa-solid fa-quote-right absolute top-2 left-2 text-moi-gold/20 text-xl"></i><p class="text-xs text-gray-200 leading-relaxed"><strong class="text-moi-goldLight block mb-1">« ناموا ملء جفونكم »</strong> أتابع سلامة الشبكة وتشفير جميع الأجهزة المتصلة طوال الليل، وأي تنبيه أمني أتعامل معه فوراً.</p></div>
+</div>
+<div class="p-4 bg-moi-dark/70 border-t border-moi-gold/20 flex items-center justify-between"><span class="text-xs text-gray-400"><i class="fa-solid fa-clock text-moi-gold ml-1"></i> الشفت الليلي</span><button onclick="contactAgent('م. فهد الشمري','الشفت الليلي (11:00 م - 07:00 ص)','ناموا ملء جفونكم')" class="text-xs bg-moi-green hover:bg-moi-light text-white px-3 py-1.5 rounded-lg border border-moi-gold/40 transition"><i class="fa-solid fa-comment-dots ml-1"></i> محادثة فورية</button></div>
+</div>
+
+</div>
+</section>
+
+<!-- DEVICES -->
+<section id="devicesSection">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between mb-6 pb-2 border-b border-moi-gold/30 gap-4">
+<div><span class="text-moi-gold text-xs font-bold tracking-wider">سجل التوثيق الرقمي الموحد</span><h3 class="text-2xl font-bold font-cairo text-white flex items-center gap-2"><i class="fa-solid fa-microchip text-moi-gold"></i> الأجهزة الذكية الموثقة والمربوطة بالمنصة</h3></div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+<div class="relative"><input id="deviceSearch" oninput="searchDevices(this.value)" placeholder="بحث برقم الجهاز أو الاسم..." class="bg-moi-dark/80 border border-moi-gold/30 rounded-xl py-2 pr-9 pl-3 text-xs text-white w-full sm:w-56 placeholder-gray-500"><i class="fa-solid fa-magnifying-glass absolute right-3 top-2.5 text-moi-gold/60 text-xs"></i></div>
+<div class="flex items-center gap-1 bg-moi-dark/80 p-1 rounded-xl border border-moi-gold/30 text-[11px] overflow-x-auto">
+<button onclick="filterDevices('all')" class="device-tab active bg-moi-gold text-moi-dark font-bold px-3 py-1.5 rounded-lg transition whitespace-nowrap" data-filter="all">الكل (6)</button>
+<button onclick="filterDevices('computer')" class="device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition whitespace-nowrap" data-filter="computer">حواسيب ولابتوب</button>
+<button onclick="filterDevices('phone')" class="device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition whitespace-nowrap" data-filter="phone">هواتف ولوحيات</button>
+<button onclick="filterDevices('gaming')" class="device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition whitespace-nowrap" data-filter="gaming">ألعاب ذكية</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="devicesContainer">
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="computer" data-name="حاسوب مكتبي">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="حاسوب"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400"><i class="fa-solid fa-signal ml-1"></i> موثّق - متصل</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.12.88</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">حاسوب مكتبي موثّق (Secure-PC)</h4><p class="text-xs text-gray-400 mt-0.5">معالج تشفير معتمد + حماية نفاذ وطني</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-9801</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">اللواء د. خالد السديري</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">AES-256 GCM</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ توثيق ساري حتى 2027</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('حاسوب Secure-PC')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('حاسوب مكتبي Secure-PC','10.240.12.88','AES-256 GCM','ويندوز 11 Enterprise موثق')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="computer" data-name="لابتوب">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="لابتوب"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400"><i class="fa-solid fa-laptop ml-1"></i> لابتوب موثّق</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.45.19</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">لابتوب الأعمال المحمول (ProBook-X)</h4><p class="text-xs text-gray-400 mt-0.5">بصمة + شريحة TPM 2.0 مشفرة</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-4432</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">أ. نورة الحربي</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">BitLocker + TPM</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ توثيق ساري حتى 2026</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('لابتوب ProBook-X')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('لابتوب ProBook-X','10.240.45.19','BitLocker + TPM 2.0','معتمد للعمل عن بعد')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="phone" data-name="هاتف جوال">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="جوال"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400"><i class="fa-solid fa-mobile-screen ml-1"></i> هاتف موثّق</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.89.04</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">هاتف اتصال ذكي (Secure-Phone)</h4><p class="text-xs text-gray-400 mt-0.5">توثيق الشريحة + FaceID مشفر</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-7721</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">د. طارق العنيزي</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">E2EE + eSIM Secure</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ مربوط بنفاذ وطني</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('هاتف Secure-Phone')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('هاتف Secure-Phone','10.240.89.04','E2EE eSIM','أندرويد / iOS موثق')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="phone" data-name="لوحي تابلت">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="تابلت"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-emerald-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-400"><i class="fa-solid fa-tablet-screen-button ml-1"></i> لوحي موثّق</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.02.14</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">جهاز لوحي ذكي (Smart-Tab)</h4><p class="text-xs text-gray-400 mt-0.5">للتعليم والاجتماعات المرئية الآمنة</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-1102</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">العقيد م. فيصل الشمري</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">TLS 1.3 / MDM</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ إدارة مركزية MDM</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('جهاز Smart-Tab')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('جهاز Smart-Tab','10.240.02.14','TLS 1.3 / MDM','إدارة مركزية معتمدة')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="gaming" data-name="بلايستيشن العاب">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="بلايستيشن"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-violet-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-violet-400"><i class="fa-solid fa-gamepad ml-1"></i> PS5 موثّق</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.77.10</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">جهاز ألعاب PlayStation 5 Pro</h4><p class="text-xs text-gray-400 mt-0.5">توثيق الحساب + رقابة أبوية ذكية</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-3309</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">النقيب سعود الدوسري</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">PSN 2FA + VPN</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ محمي من الاختراق</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('جهاز PS5 Pro')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('جهاز PS5 Pro','10.240.77.10','PSN 2FA + VPN','حساب موثق برقم الجوال')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+<div class="glass-panel rounded-2xl overflow-hidden border border-moi-gold/30 hover:border-moi-gold transition-all duration-300 group device-item" data-category="gaming" data-name="اكسبوكس العاب">
+<div class="h-48 relative overflow-hidden bg-black/60"><img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90" alt="اكسبوكس"><div class="absolute inset-0 bg-gradient-to-t from-moi-dark via-transparent to-transparent"></div><span class="absolute top-3 right-3 bg-violet-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-violet-400"><i class="fa-solid fa-gamepad ml-1"></i> Xbox موثّق</span><span class="absolute bottom-3 right-3 text-xs font-mono bg-black/80 px-2 py-0.5 rounded text-moi-gold border border-moi-gold/40">IP: 10.240.90.31</span><span class="absolute top-3 left-3 bg-moi-gold text-black text-[10px] font-black px-2 py-1 rounded flex items-center gap-1"><i class="fa-solid fa-badge-check"></i> X موثّق</span></div>
+<div class="p-5"><div class="flex justify-between items-start"><div><h4 class="font-bold text-white text-[15px]">جهاز ألعاب Xbox Series X</h4><p class="text-xs text-gray-400 mt-0.5">متصل بالإنترنت مع حماية الدفع الآمن</p></div><span class="text-xs font-mono text-moi-gold font-bold">#DEV-5561</span></div>
+<div class="mt-4 space-y-1.5 text-xs text-gray-300 border-t border-moi-gold/15 pt-3"><div class="flex justify-between"><span class="text-gray-400">مالك الجهاز:</span><span class="font-medium text-moi-goldLight">م. سلطان الغامدي</span></div><div class="flex justify-between"><span class="text-gray-400">التشفير:</span><span class="text-emerald-400 font-mono">Xbox Secure-Core</span></div><div class="flex justify-between"><span class="text-gray-400">الحالة:</span><span class="text-emerald-400">✓ توثيق GamePass ساري</span></div></div>
+<div class="mt-4 pt-3 border-t border-moi-gold/20 flex gap-2"><button onclick="openPasswordModal('جهاز Xbox Series X')" class="flex-1 bg-moi-deep hover:bg-moi-green text-moi-goldLight text-xs py-2 rounded-lg border border-moi-gold/40 flex items-center justify-center gap-1 transition"><i class="fa-solid fa-key"></i> تجديد كلمة السر</button><button onclick="inspectDevice('جهاز Xbox Series X','10.240.90.31','Xbox Secure-Core','حماية عمليات الشراء')" class="p-2 bg-moi-dark hover:bg-moi-gold/20 text-moi-gold rounded-lg border border-moi-gold/30 text-xs px-3"><i class="fa-solid fa-eye"></i></button></div></div></div>
+
+</div>
+</section>
+
+<!-- AWARENESS -->
+<section class="glass-panel-dark rounded-2xl p-6 border border-moi-gold/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-l from-moi-gold via-moi-goldLight to-moi-gold"></div>
+<div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-moi-gold/20 text-moi-gold border border-moi-gold/40"><i class="fa-solid fa-bullhorn text-lg"></i></div><div><h3 class="text-lg font-bold text-white font-cairo">إعلانات الإرشاد الأمني والوقاية السيبرانية</h3><p class="text-xs text-gray-400">مبادئ أساسية ملزمة لجميع مستخدمي منصة الإتصال الآمن</p></div></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+<div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3"><div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-fingerprint"></i></div><div><h4 class="font-bold text-white text-sm mb-1">توثيق إلزامي لكل جهاز</h4><p class="text-gray-300 leading-relaxed">كل حاسوب وجوال وجهاز ألعاب متصل بالإنترنت يجب توثيقه في المنصة وإلا سيتم حظر اتصاله احترازياً.</p></div></div>
+<div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3"><div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-shield-virus"></i></div><div><h4 class="font-bold text-white text-sm mb-1">حظر الأجهزة غير الموثقة</h4><p class="text-gray-300 leading-relaxed">يُمنع ربط أي جهاز غير مفحوص وغير حاصل على شارة التوثيق الذهبية من الإتصال الآمن.</p></div></div>
+<div class="bg-moi-deep/40 p-4 rounded-xl border border-moi-gold/20 flex items-start gap-3"><div class="text-moi-gold text-2xl mt-0.5"><i class="fa-solid fa-clock-rotate-left"></i></div><div><h4 class="font-bold text-white text-sm mb-1">التجديد الدوري للتوثيق</h4><p class="text-gray-300 leading-relaxed">يجب تحديث بيانات التوثيق والأرقام السرية كل 45 يوماً وفق سياسة المنصة ومعايير الأمن السيبراني.</p></div></div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-16 border-t border-moi-gold/30 bg-moi-dark py-8 text-center text-xs text-gray-400">
+<div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center space-y-3">
+<div class="flex items-center justify-center gap-2">
+<div class="w-8 h-8 rounded-full bg-black border border-moi-gold flex items-center justify-center relative"><span class="font-black text-white">X</span><span class="absolute -bottom-0.5 -left-0.5 w-4 h-4 bg-moi-gold rounded-full border border-black flex items-center justify-center"><i class="fa-solid fa-check text-[7px] text-black"></i></span></div>
+<div class="flex items-center gap-2 text-moi-gold font-bold text-sm"><i class="fa-solid fa-shield-halved"></i><span>منصة الإتصال الآمن</span></div>
+</div>
+<p class="text-gray-400 text-[11px]">جميع الحقوق محفوظة للمملكة العربية السعودية © 2026 - الإتصال الآمن</p>
+<div class="flex gap-4 text-moi-gold/70 text-xs"><span class="hover:text-moi-gold cursor-pointer">سياسة الخصوصية والسرية</span><span>•</span><span class="hover:text-moi-gold cursor-pointer">معايير الهيئة الوطنية للأمن السيبراني</span></div>
+</div>
+</footer>
+
+<!-- FLOAT SUPPORT -->
+<button onclick="contactActiveShift()" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-moi-gold to-moi-goldDark text-moi-dark shadow-2xl shadow-moi-gold/30 flex items-center justify-center hover:scale-110 transition floaty border-2 border-white/20"><i class="fa-solid fa-headset text-xl"></i></button>
+
+<!-- DRAWER -->
+<div id="userDrawerOverlay" onclick="toggleUserDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<aside id="userDrawer" class="fixed top-0 left-0 bottom-0 w-full sm:w-[440px] bg-moi-dark border-r border-moi-gold/40 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+<div class="p-5 border-b border-moi-gold/30 bg-moi-deep/60 flex items-center justify-between">
+<div class="flex items-center gap-3"><div class="p-2 rounded-lg bg-moi-gold/20 text-moi-gold border border-moi-gold/40"><i class="fa-solid fa-users-viewfinder text-lg"></i></div><div><h3 class="font-bold text-white text-base font-cairo">تسجيل الدخول للأدوار</h3><p class="text-xs text-moi-gold">سجّل دخولك ثم تظهر جميع الأدوار بقائمة انزلاقية</p></div></div>
+<button onclick="toggleUserDrawer()" class="p-2 rounded-full hover:bg-moi-gold/20 text-gray-300 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
+</div>
+
+<div class="p-4 bg-black/30 border-b border-moi-gold/20">
+<div class="grid grid-cols-2 gap-2 bg-moi-deep/50 p-1 rounded-xl border border-moi-gold/20 text-xs">
+<button id="tabLogin" onclick="switchAuthTab('login')" class="auth-tab-active py-2 rounded-lg text-gray-300 transition flex items-center justify-center gap-1"><i class="fa-solid fa-right-to-bracket"></i> دخول الأدوار</button>
+<button id="tabRegister" onclick="switchAuthTab('register')" class="py-2 rounded-lg text-gray-300 transition flex items-center justify-center gap-1"><i class="fa-solid fa-user-plus"></i> تسجيل جديد</button>
+</div>
+
+<!-- LOGIN -->
+<div id="loginPane" class="mt-3 space-y-2.5">
+<label class="text-[11px] text-gray-300 font-bold">اختر الدور / المستخدم للدخول:</label>
+<select id="loginUserSelect" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white"></select>
+<div class="relative"><input type="password" id="loginPass" placeholder="الرقم السري / رمز الدخول" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white pr-9"><i class="fa-solid fa-lock absolute right-3 top-3 text-moi-gold/60 text-xs"></i></div>
+<button onclick="doLogin()" class="w-full bg-gradient-to-l from-moi-gold to-moi-goldDark text-moi-dark font-bold py-2.5 rounded-lg text-xs font-cairo hover:shadow-lg transition"><i class="fa-solid fa-circle-check ml-1"></i> تأكيد الدخول وتفعيل الدور</button>
+<p class="text-[10px] text-gray-400 text-center">بعد الدخول ستظهر لك جميع الأدوار المتاحة في القائمة الانزلاقية بالأسفل للتبديل الفوري.</p>
+</div>
+
+<!-- REGISTER -->
+<div id="registerPane" class="mt-3 space-y-2.5 hidden">
+<div class="grid grid-cols-1 gap-2">
+<input id="regName" placeholder="الاسم الكامل (مثال: محمد عبدالله القحطاني)" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white placeholder-gray-500">
+<div class="grid grid-cols-2 gap-2">
+<select id="regRole" class="bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white">
+<option value="العميل المصرح">عميل مصرح (نفاذ)</option>
+<option value="أخصائي دعم العمليات">أخصائي دعم</option>
+<option value="مشرف العمليات الميدانية">مشرف عمليات</option>
+<option value="مدير الدعم الفني">مدير الدعم الفني</option>
+<option value="المشرف العام">مشرف عام</option>
+</select>
+<input id="regPhone" placeholder="رقم الجوال 05xxxxxxxx" class="bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white placeholder-gray-500">
+</div>
+<div class="grid grid-cols-2 gap-2">
+<input type="password" id="regPass" placeholder="الرقم السري" class="bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white placeholder-gray-500">
+<select id="regDevice" class="bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-xs text-white">
+<option>حاسوب مكتبي</option><option>لابتوب</option><option>هاتف ذكي</option><option>جهاز ألعاب</option><option>جهاز لوحي</option>
+</select>
+</div>
+<button onclick="doRegister()" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-lg text-xs transition border border-emerald-400/30"><i class="fa-solid fa-user-plus ml-1"></i> تسجيل وإضافة للقائمة الانزلاقية</button>
+</div>
+</div>
+</div>
+
+<div class="px-4 pt-3">
+<div class="flex items-center gap-2 text-xs text-moi-goldLight bg-moi-green/20 border border-moi-gold/20 rounded-lg p-2.5"><i class="fa-solid fa-circle-info text-moi-gold"></i><span>جميع الأدوار تظهر هنا بقائمة انزلاقية — اضغط للتفعيل أو تعديل الرقم السري.</span></div>
+<div class="relative mt-2"><input oninput="filterUsers(this.value)" placeholder="بحث في الأدوار..." class="w-full bg-black/30 border border-moi-gold/20 rounded-lg p-2 pr-9 text-xs text-white placeholder-gray-500"><i class="fa-solid fa-magnifying-glass absolute right-3 top-2.5 text-moi-gold/50 text-xs"></i></div>
+</div>
+
+<div class="flex-1 overflow-y-auto p-4 space-y-3" id="usersList"></div>
+
+<div class="p-3 border-t border-moi-gold/30 bg-moi-dark text-center text-xs text-gray-400"><span class="text-moi-gold font-bold">نظام صلاحيات قائم على الدور (RBAC)</span><p class="text-[10px] text-gray-400 mt-0.5">كافة عمليات الدخول والتسجيل مسجلة في سجل التدقيق المشفّر</p></div>
+</aside>
+
+<!-- PASSWORD MODAL -->
+<div id="passwordModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-moi-dark border-2 border-moi-gold w-full max-w-lg rounded-2xl p-6 shadow-2xl relative transform scale-95 transition-all duration-300" id="passwordModalCard">
+<div class="flex items-center justify-between pb-4 border-b border-moi-gold/30"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-moi-gold/20 text-moi-gold border border-moi-gold flex items-center justify-center"><i class="fa-solid fa-lock-open text-lg"></i></div><div><h3 class="text-lg font-bold text-white font-cairo">تعديل الرقم السري المشفر</h3><p class="text-xs text-moi-gold" id="targetAccountLabel">الملف المستهدف: المشرف العام</p></div></div><button onclick="closePasswordModal()" class="text-gray-400 hover:text-white text-lg p-1"><i class="fa-solid fa-xmark"></i></button></div>
+<form id="passwordForm" onsubmit="handlePasswordSubmit(event)" class="mt-5 space-y-4 text-xs">
+<div><label class="block text-gray-300 font-bold mb-1">الرقم السري الحالي / كود التحقق:</label><div class="relative"><input type="password" required id="oldPass" placeholder="••••••••" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9"><i class="fa-solid fa-shield absolute right-3 top-3 text-moi-gold/60"></i></div></div>
+<div><label class="block text-gray-300 font-bold mb-1">الرقم السري الجديد المعقد:</label><div class="relative"><input type="password" required id="newPass" oninput="checkPassStrength(this.value)" placeholder="أحرف + أرقام + رموز @#$" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9"><i class="fa-solid fa-key absolute right-3 top-3 text-moi-gold/60"></i></div>
+<div class="mt-2"><div class="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden"><div id="strengthBar" class="h-full bg-red-500 transition-all duration-300" style="width:20%"></div></div><span id="strengthText" class="text-[10px] text-gray-400 block mt-1">قوة كلمة المرور: ضعيفة</span></div></div>
+<div><label class="block text-gray-300 font-bold mb-1">تأكيد الرقم السري الجديد:</label><div class="relative"><input type="password" required id="confirmPass" placeholder="إعادة كتابة الرقم السري" class="w-full bg-moi-deep/60 border border-moi-gold/30 rounded-lg p-2.5 text-white pr-9"><i class="fa-solid fa-check-double absolute right-3 top-3 text-moi-gold/60"></i></div></div>
+<div class="bg-moi-gold/10 border border-moi-gold/30 p-3 rounded-lg text-gray-300 text-[11px] leading-relaxed"><i class="fa-solid fa-triangle-exclamation text-moi-gold ml-1"></i> سيتم توثيق التعديل في منصة الإتصال الآمن وسجل العمليات المشفر.</div>
+<div class="flex items-center justify-end gap-3 pt-3 border-t border-moi-gold/20"><button type="button" onclick="closePasswordModal()" class="px-4 py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition">إلغاء</button><button type="submit" class="px-5 py-2 rounded-lg bg-gradient-to-l from-moi-gold to-moi-goldDark hover:from-moi-goldLight hover:to-moi-gold text-moi-dark font-bold font-cairo shadow-lg transition">حفظ وتطبيق التشفير</button></div>
+</form>
+</div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-moi-dark border-2 border-moi-gold w-full max-w-md rounded-2xl p-6 shadow-2xl relative text-center">
+<div class="w-20 h-20 mx-auto rounded-full border-2 border-moi-gold p-1 bg-moi-deep shadow-xl mb-4 relative"><img id="agentModalImg" src="" alt="الدعم" class="w-full h-full object-cover rounded-full"><span class="absolute -bottom-1 -left-1 w-6 h-6 bg-moi-gold rounded-full border border-black flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-black"></i></span></div>
+<h3 class="text-xl font-bold text-white font-cairo" id="agentModalName">نورة الحربي</h3><span class="text-xs text-moi-gold font-bold block mt-1" id="agentModalShift">الشفت الصباحي</span>
+<div class="my-5 p-4 rounded-xl bg-moi-deep/60 border border-moi-gold/30 text-sm text-gray-200 leading-relaxed" id="agentModalQuote"></div>
+<div id="chatBox" class="text-right max-h-40 overflow-y-auto space-y-2 mb-3 hidden"></div>
+<div class="flex flex-col gap-2">
+<button onclick="startSecureCall()" class="w-full py-2.5 bg-moi-green hover:bg-moi-light text-white font-bold rounded-lg border border-moi-gold/40 flex items-center justify-center gap-2 text-xs transition"><i class="fa-solid fa-phone-volume animate-pulse text-moi-goldLight"></i> بدء اتصال صوتي مشفر فوري</button>
+<button onclick="startQuickChat()" class="w-full py-2.5 bg-moi-gold/15 hover:bg-moi-gold/25 text-moi-goldLight font-bold rounded-lg border border-moi-gold/40 text-xs transition"><i class="fa-solid fa-comments ml-1"></i> بدء محادثة نصية فورية</button>
+<button onclick="closeContactModal()" class="w-full py-2 bg-gray-800 text-gray-300 rounded-lg text-xs hover:bg-gray-700 transition">إغلاق النافذة</button>
+</div>
+</div>
+</div>
+
+<!-- INSPECT MODAL -->
+<div id="inspectModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+<div class="bg-moi-dark border-2 border-moi-gold w-full max-w-md rounded-2xl p-6 shadow-2xl relative" id="inspectCard">
+<div class="flex items-center justify-between pb-3 border-b border-moi-gold/30"><h3 class="font-bold text-white font-cairo flex items-center gap-2"><i class="fa-solid fa-microchip text-moi-gold"></i> بطاقة توثيق الجهاز</h3><button onclick="closeInspect()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button></div>
+<div class="mt-4 space-y-3 text-xs">
+<div class="flex items-center gap-3 bg-black/30 p-3 rounded-xl border border-moi-gold/20"><div class="w-12 h-12 rounded-xl bg-moi-gold/20 border border-moi-gold flex items-center justify-center text-moi-gold text-xl"><i class="fa-solid fa-shield-halved"></i></div><div><div id="insName" class="font-bold text-white text-sm">—</div><div id="insExtra" class="text-gray-400">—</div></div><span class="mr-auto bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-2 py-1 rounded text-[10px] font-bold">موثّق ✓</span></div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-moi-deep/50 p-3 rounded-lg border border-white/5"><div class="text-gray-400">العنوان الشبكي</div><div id="insIp" class="font-mono text-moi-gold font-bold mt-1">—</div></div>
+<div class="bg-moi-deep/50 p-3 rounded-lg border border-white/5"><div class="text-gray-400">التشفير</div><div id="insCrypto" class="font-mono text-emerald-300 font-bold mt-1">—</div></div>
+</div>
+<div class="bg-moi-gold/10 border border-moi-gold/30 p-3 rounded-lg text-[11px] text-gray-200 leading-relaxed"><i class="fa-solid fa-badge-check text-moi-gold ml-1"></i> هذا الجهاز حاصل على شارة التوثيق الذهبية من منصة الإتصال الآمن وشهادة X.509 سارية.</div>
+<button onclick="closeInspect()" class="w-full py-2.5 bg-gradient-to-l from-moi-gold to-moi-goldDark text-moi-dark font-bold rounded-lg text-xs">إغلاق البطاقة</button>
+</div>
+</div>
+</div>
+
+<!-- TOAST -->
+<div id="toastNotification" class="fixed bottom-6 left-6 z-[70] bg-moi-deep text-white border-2 border-moi-gold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 text-xs font-bold max-w-[90vw]"><i class="fa-solid fa-circle-check text-moi-gold text-lg" id="toastIcon"></i><span id="toastMessage">تم بنجاح</span></div>
+
+<script>
+document.getElementById('currentYear')?.remove;
+let allUsers=[
+{id:1,name:"اللواء د. خالد بن فهد السديري",short:"اللواء د. خالد السديري",role:"المشرف العام على المنظومة",roleShort:"المشرف العام",icon:"fa-user-shield",color:"text-moi-gold",current:true},
+{id:2,name:"العقيد م. فيصل بن عبدالله الشمري",short:"العقيد م. فيصل الشمري",role:"مدير الدعم الفني والأمن السيبراني",roleShort:"مدير الدعم الفني",icon:"fa-headset",color:"text-amber-300"},
+{id:3,name:"النقيب سعود بن محمد الدوسري",short:"النقيب سعود الدوسري",role:"مشرف العمليات الميدانية",roleShort:"مشرف العمليات الميدانية",icon:"fa-shield",color:"text-gray-300"},
+{id:4,name:"أ. نورة بنت سعد الحربي",short:"أ. نورة الحربي",role:"أخصائية دعم العمليات (الوردية 1)",roleShort:"أخصائية دعم العمليات",img:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",color:"text-emerald-300"},
+{id:5,name:"م. عبدالله المطيري",short:"م. عبدالله المطيري",role:"أخصائي توثيق الحواسيب واللابتوب",roleShort:"أخصائي توثيق",img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",color:"text-emerald-300"},
+{id:6,name:"م. سلطان الغامدي",short:"م. سلطان الغامدي",role:"أخصائي أجهزة الألعاب الذكية",roleShort:"أخصائي ألعاب ذكية",img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",color:"text-violet-300"},
+{id:7,name:"د. طارق بن سليمان العنيزي",short:"د. طارق العنيزي",role:"حساب العميل المصرح (نفاذ وطني)",roleShort:"العميل المصرح",icon:"fa-id-card",color:"text-blue-300"}
+];
+function renderUsers(filter=""){
+const list=document.getElementById('usersList');
+const sel=document.getElementById('loginUserSelect');
+sel.innerHTML="";
+allUsers.forEach(u=>{
+const o=document.createElement('option');o.value=u.id;o.textContent=u.name+" — "+u.roleShort;sel.appendChild(o);
+});
+const filtered=allUsers.filter(u=>u.name.includes(filter)||u.role.includes(filter)||u.roleShort.includes(filter));
+list.innerHTML=filtered.map(u=>`
+<div class="p-3.5 rounded-xl border ${u.current?'border-moi-gold/60 bg-moi-deep/60 shadow-lg':'border-moi-gold/20 bg-moi-deep/20'} hover:bg-moi-deep/60 transition flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-moi-gold/20 border border-moi-gold/50 flex items-center justify-center ${u.color} font-bold overflow-hidden flex-shrink-0">
+${u.img?`<img src="${u.img}" class="w-full h-full object-cover">`:`<i class="fa-solid ${u.icon}"></i>`}
+</div>
+<div><h4 class="text-[13px] font-bold text-white leading-tight">${u.name}</h4><span class="text-[11px] ${u.color} font-semibold">${u.role}</span></div>
+</div>
+${u.current?'<span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded whitespace-nowrap">الحالي ✓</span>':''}
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs gap-2">
+<button onclick="switchUserRole(${u.id})" class="text-moi-gold hover:text-white font-bold flex items-center gap-1"><i class="fa-solid fa-arrows-rotate"></i> تفعيل الدور</button>
+<button onclick="openPasswordModal('${u.short}')" class="text-gray-300 hover:text-moi-gold flex items-center gap-1 bg-moi-dark/60 px-2.5 py-1 rounded border border-moi-gold/20"><i class="fa-solid fa-key"></i> الرقم السري</button>
+</div>
+</div>`).join('')||'<p class="text-center text-gray-400 text-xs py-6">لا توجد نتائج مطابقة للبحث</p>';
+}
+function filterUsers(v){renderUsers(v.trim())}
+function switchAuthTab(t){
+const l=document.getElementById('tabLogin'),r=document.getElementById('tabRegister');
+const lp=document.getElementById('loginPane'),rp=document.getElementById('registerPane');
+if(t==='login'){l.classList.add('auth-tab-active');r.classList.remove('auth-tab-active');lp.classList.remove('hidden');rp.classList.add('hidden')}
+else{r.classList.add('auth-tab-active');l.classList.remove('auth-tab-active');rp.classList.remove('hidden');lp.classList.add('hidden')}
+}
+function doLogin(){
+const id=document.getElementById('loginUserSelect').value;
+const pass=document.getElementById('loginPass').value;
+if(!pass){showToast('فضلاً أدخل الرقم السري للدخول',false);return}
+const u=allUsers.find(x=>x.id==id);
+allUsers.forEach(x=>x.current=false);u.current=true;
+document.getElementById('currentLoggedUser').textContent=u.short;
+document.getElementById('currentRoleLabel').textContent=u.role;
+document.getElementById('loginPass').value="";
+renderUsers();showToast(`تم تسجيل الدخول بنجاح: ${u.short} (${u.roleShort}) — ظهرت جميع الأدوار بالقائمة`);
+}
+function doRegister(){
+const name=document.getElementById('regName').value.trim();
+const role=document.getElementById('regRole').value;
+const phone=document.getElementById('regPhone').value.trim();
+const pass=document.getElementById('regPass').value;
+const dev=document.getElementById('regDevice').value;
+if(!name||!phone||!pass){showToast('أكمل جميع حقول التسجيل (الاسم + الجوال + الرقم السري)',false);return}
+const nu={id:Date.now(),name:name,short:name.split(' ').slice(0,3).join(' '),role:role+" — "+dev,roleShort:role,icon:"fa-user",color:"text-moi-goldLight",current:false};
+allUsers.push(nu);
+document.getElementById('regName').value="";document.getElementById('regPhone').value="";document.getElementById('regPass').value="";
+renderUsers();switchAuthTab('login');
+showToast(`تم تسجيل ${name} بنجاح وإضافته لقائمة الأدوار الانزلاقية ✓`);
+}
+function toggleUserDrawer(){
+const drawer=document.getElementById('userDrawer');
+const overlay=document.getElementById('userDrawerOverlay');
+const isOpen=!drawer.classList.contains('-translate-x-full');
+if(isOpen){drawer.classList.add('-translate-x-full');overlay.classList.remove('opacity-100','pointer-events-auto');overlay.classList.add('opacity-0','pointer-events-none')}
+else{drawer.classList.remove('-translate-x-full');overlay.classList.add('opacity-100','pointer-events-auto');overlay.classList.remove('opacity-0','pointer-events-none')}
+}
+function switchUserRole(id){
+const u=allUsers.find(x=>x.id===id);
+allUsers.forEach(x=>x.current=false);u.current=true;
+document.getElementById('currentLoggedUser').textContent=u.short;
+document.getElementById('currentRoleLabel').textContent=u.role;
+renderUsers();toggleUserDrawer();
+showToast(`تم الانتقال للدور البديل: ${u.short} (${u.roleShort})`);
+}
+let activeTargetAccount='المشرف العام';
+function openPasswordModal(targetUser='المشرف العام أو العميل'){
+activeTargetAccount=targetUser;
+document.getElementById('targetAccountLabel').textContent=`الملف المستهدف: ${targetUser}`;
+const modal=document.getElementById('passwordModal');const card=document.getElementById('passwordModalCard');
+modal.classList.add('modal-open');modal.classList.remove('opacity-0','pointer-events-none');
+card.classList.remove('scale-95');card.classList.add('scale-100');
+document.getElementById('passwordForm').reset();checkPassStrength('');
+}
+function closePasswordModal(){
+const modal=document.getElementById('passwordModal');const card=document.getElementById('passwordModalCard');
+modal.classList.remove('modal-open');modal.classList.add('opacity-0','pointer-events-none');
+card.classList.add('scale-95');card.classList.remove('scale-100');
+}
+function checkPassStrength(val){
+const bar=document.getElementById('strengthBar');const txt=document.getElementById('strengthText');
+if(!val||val.length<4){bar.style.width='20%';bar.className='h-full bg-red-500 transition-all duration-300';txt.textContent='قوة كلمة المرور: ضعيفة جداً';txt.className='text-[10px] text-red-400 block mt-1'}
+else if(val.length<8){bar.style.width='50%';bar.className='h-full bg-amber-500 transition-all duration-300';txt.textContent='قوة كلمة المرور: متوسطة (يُفضل إضافة رموز @#$)';txt.className='text-[10px] text-amber-400 block mt-1'}
+else{bar.style.width='100%';bar.className='h-full bg-emerald-500 transition-all duration-300';txt.textContent='قوة كلمة المرور: معقدة ومطابقة للمعايير ✓';txt.className='text-[10px] text-emerald-400 block mt-1 font-bold'}
+}
+function handlePasswordSubmit(e){
+e.preventDefault();
+const n=document.getElementById('newPass').value;const c=document.getElementById('confirmPass').value;
+if(n!==c){showToast('كلمتا المرور غير متطابقتين',false);return}
+closePasswordModal();showToast(`تم تعديل وتشفير الرقم السري بنجاح لحساب: ${activeTargetAccount}`);
+}
+let currentDeviceFilter='all';
+function filterDevices(category){
+currentDeviceFilter=category;
+const tabs=document.querySelectorAll('.device-tab');
+tabs.forEach(t=>{if(t.dataset.filter===category){t.className='device-tab active bg-moi-gold text-moi-dark font-bold px-3 py-1.5 rounded-lg transition whitespace-nowrap'}else{t.className='device-tab text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition whitespace-nowrap'}});
+applyDeviceFilter();
+}
+function searchDevices(q){applyDeviceFilter(q)}
+function applyDeviceFilter(q=""){
+q=(document.getElementById('deviceSearch')?.value||q).trim();
+document.querySelectorAll('.device-item').forEach(item=>{
+const matchCat=(currentDeviceFilter==='all'||item.dataset.category===currentDeviceFilter);
+const matchQ=!q||item.dataset.name.includes(q)||item.innerHTML.includes(q);
+item.style.display=(matchCat&&matchQ)?'block':'none';
+});
+}
+function inspectDevice(name,ip,crypto,extra){
+document.getElementById('insName').textContent=name;
+document.getElementById('insIp').textContent=ip;
+document.getElementById('insCrypto').textContent=crypto;
+document.getElementById('insExtra').textContent=extra;
+const m=document.getElementById('inspectModal');m.classList.add('modal-open');m.classList.remove('opacity-0','pointer-events-none');
+}
+function closeInspect(){const m=document.getElementById('inspectModal');m.classList.remove('modal-open');m.classList.add('opacity-0','pointer-events-none')}
+let currentAgent="الدعم";
+function contactAgent(name,shift,quote){
+currentAgent=name;
+const modal=document.getElementById('contactModal');
+document.getElementById('agentModalName').textContent=name;
+document.getElementById('agentModalShift').textContent=shift;
+document.getElementById('agentModalQuote').textContent=`« ${quote} » — منصة الإتصال الآمن ترحب بك، كيف أقدر أخدمك في توثيق جهازك؟`;
+let img="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80";
+if(name.includes('ريم'))img="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80";
+else if(name.includes('مها'))img="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80";
+else if(name.includes('عبدالله'))img="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80";
+else if(name.includes('سلطان'))img="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80";
+else if(name.includes('فهد')&&name.includes('م.'))img="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80";
+document.getElementById('agentModalImg').src=img;
+document.getElementById('chatBox').classList.add('hidden');document.getElementById('chatBox').innerHTML="";
+modal.classList.add('modal-open');modal.classList.remove('opacity-0','pointer-events-none');
+}
+function closeContactModal(){const modal=document.getElementById('contactModal');modal.classList.remove('modal-open');modal.classList.add('opacity-0','pointer-events-none')}
+function startSecureCall(){closeContactModal();showToast('جاري إنشاء خط تشفير صوتي آمن عبر SRTP مع '+currentAgent+'...')}
+function startQuickChat(){
+const box=document.getElementById('chatBox');box.classList.remove('hidden');
+box.innerHTML=`<div class="bg-moi-deep/70 border border-moi-gold/20 rounded-xl p-2.5 text-xs text-gray-200"><b class="text-moi-gold">${currentAgent}:</b> حياك الله، معك دعم الإتصال الآمن. هل جهازك حاسوب، جوال، أو ألعاب؟</div>
+<div class="flex gap-2 mt-2"><input id="quickInput" placeholder="اكتب استفسارك..." class="flex-1 bg-black/40 border border-moi-gold/30 rounded-lg p-2 text-xs text-white"><button onclick="sendQuick()" class="bg-moi-gold text-black font-bold px-3 rounded-lg text-xs"><i class="fa-solid fa-paper-plane"></i></button></div>`;
+}
+function sendQuick(){
+const inp=document.getElementById('quickInput');if(!inp||!inp.value.trim())return;
+const box=document.getElementById('chatBox');
+const d=document.createElement('div');d.className="bg-moi-gold/15 border border-moi-gold/30 rounded-xl p-2.5 text-xs text-white";d.innerHTML=`<b>أنت:</b> ${inp.value}`;
+box.insertBefore(d,box.lastElementChild);inp.value="";
+setTimeout(()=>{const r=document.createElement('div');r.className="bg-moi-deep/70 border border-moi-gold/20 rounded-xl p-2.5 text-xs text-gray-200";r.innerHTML=`<b class="text-moi-gold">${currentAgent}:</b> أبشر، طلبك قيد المعالجة وسيتم توثيق جهازك وتشفيره خلال دقائق. هل تحتاج مساعدة أخرى؟`;box.insertBefore(r,box.lastElementChild);box.scrollTop=box.scrollHeight},900);
+}
+function contactActiveShift(){
+const h=new Date().getHours();
+if(h>=7&&h<15)contactAgent('نورة الحربي','الشفت الصباحي (07:00 ص - 03:00 م)','سمّ طال عمرك');
+else if(h>=15&&h<23)contactAgent('ريم القحطاني','الشفت المسائي (03:00 م - 11:00 م)','يا هلا ومسهلا بك');
+else contactAgent('مها العتيبي','الشفت الليلي (11:00 م - 07:00 ص)','عيوننا ساهرة لخدمتكم');
+}
+function showToast(msg,ok=true){
+const toast=document.getElementById('toastNotification');
+document.getElementById('toastMessage').textContent=msg;
+document.getElementById('toastIcon').className=ok?'fa-solid fa-circle-check text-moi-gold text-lg':'fa-solid fa-triangle-exclamation text-red-400 text-lg';
+toast.classList.remove('translate-y-24','opacity-0');toast.classList.add('translate-y-0','opacity-100');
+clearTimeout(window._tt);window._tt=setTimeout(()=>{toast.classList.remove('translate-y-0','opacity-100');toast.classList.add('translate-y-24','opacity-0')},4000);
+}
+function tickClock(){
+const d=new Date();let h=d.getHours(),m=String(d.getMinutes()).padStart(2,'0'),s=String(d.getSeconds()).padStart(2,'0');
+const ap=h>=12?'م':'ص';h=h%12||12;
+document.getElementById('liveClock').textContent=`${h}:${m}:${s} ${ap} • الرياض`;
+}
+setInterval(tickClock,1000);tickClock();
+(function(){
+const hour=new Date().getHours();const el=document.getElementById('activeShiftName');
+if(hour>=7&&hour<15)el.textContent='الوردية 1: نورة + عبدالله (صباحي)';
+else if(hour>=15&&hour<23)el.textContent='الوردية 2: ريم + سلطان (مسائي)';
+else el.textContent='الوردية 3: مها + فهد (ليلي)';
+})();
+renderUsers();
+// counter animation
+let n=0,target=12486;const kpi=document.getElementById('kpiDevices');
+const iv=setInterval(()=>{n+=173;if(n>=target){n=target;clearInterval(iv)}kpi.textContent=n.toLocaleString('en-US')},30);
+</script>
 </body>
 </html>
